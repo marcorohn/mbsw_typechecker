@@ -1,10 +1,10 @@
 pub mod execution {
     use crate::expression::expression::Expr;
     use crate::expression::expression::Expr::{And, Mult, Or, Plus};
-    use crate::Type;
-    use crate::Type::{BoolType, IntType};
     use crate::util::util::Either;
     use crate::util::util::Either::{Left, Right};
+    use crate::Type;
+    use crate::Type::{BoolType, IntType};
 
     pub fn typecheck(expr: &Expr) -> Result<Type, String> {
         match expr {
@@ -55,7 +55,6 @@ pub mod execution {
         }
     }
 
-
     pub fn eval_t(expr: &Expr) -> Result<Either<i32, bool>, String> {
         match expr {
             Expr::One => Ok(Left(1)),
@@ -98,5 +97,3 @@ pub mod execution {
         }
     }
 }
-
-

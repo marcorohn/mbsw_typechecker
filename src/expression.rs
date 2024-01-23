@@ -1,7 +1,7 @@
 pub mod expression {
-    use std::fmt::{Display, Formatter};
     use crate::expression;
-    use crate::expression::expression::Expr::{One, Zero, ETrue, EFalse, And, Mult, Or, Plus};
+    use crate::expression::expression::Expr::{And, EFalse, ETrue, Mult, One, Or, Plus, Zero};
+    use std::fmt::{Display, Formatter};
 
     #[derive(Debug, PartialEq)]
     pub enum Expr {
@@ -28,7 +28,6 @@ pub mod expression {
             }
         }
     }
-
 
     /*
      * Represents the type of an expression.
