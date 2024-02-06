@@ -151,7 +151,7 @@ data E = One | Zero | ETrue | EFalse
 
 If that is not enough, the developer can overload operators, such as the == equality operator.
 
-**Rust** requires to implement a trait for the operator to be overwritten, in case for the equality operator this looks like the following:
+**Rust** requires to implement a trait for the operator to be overloaded, in case for the equality operator this looks like the following:
 
 ```rust
 impl PartialEq for MyDatastructure {
@@ -162,7 +162,7 @@ impl PartialEq for MyDatastructure {
 ```
 
 As described above, **Haskell** uses its type classes to achieve the same goals as rusts traits,
-however, not the method syntax is used, but the actual usage of the overwritten operator (compared i.e. to the Show type class).
+however, not the method syntax is used, but the actual usage of the overloaded operator (compared i.e. to the Show type class).
 ```haskell
 instance Eq MyDatastructure where
     (MyDatastructure a1 b1) == (MyDatastructure a2 b2) = -- do the actual comparison
