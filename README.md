@@ -161,6 +161,8 @@ impl PartialEq for MyDatastructure {
 }
 ```
 
+As described above, **Haskell** uses its type classes to achieve the same goals as rusts traits,
+however, not the method syntax is used, but the actual usage of the overwritten operator (compared i.e. to the Show type class).
 ```haskell
 instance Eq MyDatastructure where
     (MyDatastructure a1 b1) == (MyDatastructure a2 b2) = -- do the actual comparison
