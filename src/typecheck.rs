@@ -12,16 +12,12 @@ pub mod execution {
             Expr::Zero => Ok(IntType),
             Expr::ETrue => Ok(BoolType),
             Expr::EFalse => Ok(BoolType),
-            Plus(e1, e2) => {
-                let r1 = typecheck(e1)?;
-                let r2 = typecheck(e2)?;
-                match (r1, r2) {
-                    (IntType, IntType) => Ok(IntType),
-                    _ => Err("Plus expression expects int types on both sides! "
-                        .parse()
-                        .unwrap()),
-                }
-            }
+            Plus(e1, e2) => match (typecheck(e1)?, typecheck(e2)?) {
+                (IntType, IntType) => Ok(IntType),
+                _ => Err("Plus expression expects int types on both sides! "
+                    .parse()
+                    .unwrap()),
+            },
             Mult(e1, e2) => {
                 let r1 = typecheck(e1)?;
                 let r2 = typecheck(e2)?;
@@ -37,7 +33,7 @@ pub mod execution {
                 let r2 = typecheck(e2)?;
                 match (r1, r2) {
                     (BoolType, BoolType) => Ok(BoolType),
-                    _ => Err("Mult expression expects bool types on both sides! "
+                    _ => Err("Or expression expects bool types on both sides! "
                         .parse()
                         .unwrap()),
                 }
@@ -47,7 +43,7 @@ pub mod execution {
                 let r2 = typecheck(e2)?;
                 match (r1, r2) {
                     (BoolType, BoolType) => Ok(BoolType),
-                    _ => Err("Mult expression expects bool types on both sides! "
+                    _ => Err("And expression expects bool types on both sides! "
                         .parse()
                         .unwrap()),
                 }
